@@ -1,10 +1,10 @@
 import { TRPCError, type inferRouterOutputs } from '@trpc/server';
 import { parse } from 'valibot';
 
-import { userProcedure, adminProcedure } from '@/server/procedures';
+import { userProcedure } from '@/server/procedures';
 import { router } from '@/server/trpc';
-import { getEmissions, getEmissionsByCountry, getOrderedEmissions, getAverageEmissions, updateEmissions } from '@/server/handlers/emissions';
-import { EmissionsInputSchema, UpdateEmissionsInputSchema } from '@/utils/validations/emissions-routes.schema';
+import { getEmissions, getEmissionsByCountry, getOrderedEmissions, getAverageEmissions } from '@/server/handlers/emissions';
+import { EmissionsInputSchema } from '@/utils/validations/emissions-routes.schema';
 
 const EmissionsRouter = router({
   getAllEmissions: userProcedure.query(async () => {
@@ -53,20 +53,6 @@ const EmissionsRouter = router({
 
       return emissions;
     }),
-  updateEmissions: adminProcedure.input((i) => parse(UpdateEmissionsInputSchema, i))
-    .mutation(async ({ input }) => {
-      const { value, ISOCode } = input;
-      const emissions = await updateEmissions(ISOCode, value);
-
-      if (!emissions) {
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-          message: 'No information found for this country',
-        });
-      }
-
-      return emissions;
-    }),
 });
 
 type EmissionsRouterOutput = inferRouterOutputs<typeof EmissionsRouter>
@@ -74,6 +60,5 @@ type EmissionsRouterOutput = inferRouterOutputs<typeof EmissionsRouter>
 export type EmmissionsResponse = EmissionsRouterOutput['getAllEmissions']
 export type CalculatedEmissionsResponse = EmissionsRouterOutput['getCalculatedEmissions']
 export type CountryEmissionsResponse = EmissionsRouterOutput['countryEmissions']
-export type UpdateEmissionsResponse = EmissionsRouterOutput['updateEmissions']
 
 export default EmissionsRouter;
