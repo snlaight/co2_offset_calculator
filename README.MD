@@ -23,6 +23,24 @@ npm install
 
 ### Running the application
 
+First, make sure you have filled in your environment variables, in a `.env` file, according to the `.env.example` file.
+
+```
+DATABASE_URL="postgres://user:password@db_url:port/db_name"
+OPENAI_API_KEY=
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+
+
+DEBUG=trpc:*
+```
+
 To start the application, run:
 
 ```
