@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TreePurchase {
+  id           String   @id @default(uuid())
+  userId       String
+  purchaseDate DateTime
+  treeCount    Int
+  totalCost    Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OffsetSimulation {
+  id                   String   @id @default(uuid())
+  userId               String
+  simulationDate       DateTime
+  totalTreesPlanted    Int
+  totalCO2Offset       Float
+  projectedOffsetYears Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AdminConfigurations {
+  id            String @id @default(uuid())
+  treeCost      Float
+  inflationRate Float
+}
+
+model CarbonFootprint {
+  id              String   @id @default(uuid())
+  userId          String
+  category        String
+  value           Float
+  calculationDate DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AI_SUGGESTION {
+  id       String @id @default(uuid())
+  query    String
+  response String
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ActivityLog {
+  id        String   @id @default(uuid())
+  userId    String
+  activity  String
+  timestamp DateTime @default(now())
+}
+
+model Emissions {
+  id                   String @id @default(uuid())
+  country_name         String
+  country_code         String @unique
+  emissions_per_capita Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum UserType {
+  User
+  Admin
+}

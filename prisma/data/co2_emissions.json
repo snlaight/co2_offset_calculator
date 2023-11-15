@@ -1,0 +1,266 @@
+{
+    "China": {
+        "CO2_per_capita": 7.44,
+        "iso_code": "CN"
+    },
+    "United States": {
+        "CO2_per_capita": 15.32,
+        "iso_code": "US"
+    },
+    "India": {
+        "CO2_per_capita": 1.89,
+        "iso_code": "IN"
+    },
+    "Russia": {
+        "CO2_per_capita": 11.45,
+        "iso_code": "RU"
+    },
+    "Japan": {
+        "CO2_per_capita": 9.76,
+        "iso_code": "JP"
+    },
+    "Germany": {
+        "CO2_per_capita": 9.42,
+        "iso_code": "DE"
+    },
+    "Canada": {
+        "CO2_per_capita": 18.72,
+        "iso_code": "CA"
+    },
+    "Iran": {
+        "CO2_per_capita": 7.71,
+        "iso_code": "IR"
+    },
+    "South Korea": {
+        "CO2_per_capita": 11.77,
+        "iso_code": "KR"
+    },
+    "Indonesia": {
+        "CO2_per_capita": 2.02,
+        "iso_code": "ID"
+    },
+    "Saudi Arabia": {
+        "CO2_per_capita": 15.47,
+        "iso_code": "SA"
+    },
+    "Brazil": {
+        "CO2_per_capita": 2.24,
+        "iso_code": "BR"
+    },
+    "Mexico": {
+        "CO2_per_capita": 3.63,
+        "iso_code": "MX"
+    },
+    "Australia": {
+        "CO2_per_capita": 17.15,
+        "iso_code": "AU"
+    },
+    "South Africa": {
+        "CO2_per_capita": 6.92,
+        "iso_code": "ZA"
+    },
+    "Turkey": {
+        "CO2_per_capita": 4.54,
+        "iso_code": "TR"
+    },
+    "United Kingdom": {
+        "CO2_per_capita": 5.6,
+        "iso_code": "GB"
+    },
+    "Italy": {
+        "CO2_per_capita": 5.96,
+        "iso_code": "IT"
+    },
+    "France": {
+        "CO2_per_capita": 5.18,
+        "iso_code": "FR"
+    },
+    "Poland": {
+        "CO2_per_capita": 7.7,
+        "iso_code": "PL"
+    },
+    "Taiwan": {
+        "CO2_per_capita": 11.73,
+        "iso_code": "TW"
+    },
+    "Thailand": {
+        "CO2_per_capita": 3.84,
+        "iso_code": "TH"
+    },
+    "Malaysia": {
+        "CO2_per_capita": 8.45,
+        "iso_code": "MY"
+    },
+    "Spain": {
+        "CO2_per_capita": 5.42,
+        "iso_code": "ES"
+    },
+    "Ukraine": {
+        "CO2_per_capita": 5.2,
+        "iso_code": "UA"
+    },
+    "Kazakhstan": {
+        "CO2_per_capita": 12.83,
+        "iso_code": "KZ"
+    },
+    "Egypt": {
+        "CO2_per_capita": 2.2,
+        "iso_code": "EG"
+    },
+    "United Arab Emirates": {
+        "CO2_per_capita": 24.33,
+        "iso_code": "AE"
+    },
+    "Vietnam": {
+        "CO2_per_capita": 2.21,
+        "iso_code": "VN"
+    },
+    "Argentina": {
+        "CO2_per_capita": 4.6,
+        "iso_code": "AR"
+    },
+    "Pakistan": {
+        "CO2_per_capita": 0.83,
+        "iso_code": "PK"
+    },
+    "Venezuela": {
+        "CO2_per_capita": 5.72,
+        "iso_code": "VE"
+    },
+    "Netherlands": {
+        "CO2_per_capita": 9.54,
+        "iso_code": "NL"
+    },
+    "Iraq": {
+        "CO2_per_capita": 4.2,
+        "iso_code": "IQ"
+    },
+    "Algeria": {
+        "CO2_per_capita": 3.87,
+        "iso_code": "DZ"
+    },
+    "Philippines": {
+        "CO2_per_capita": 1.21,
+        "iso_code": "PH"
+    },
+    "Czech Republic": {
+        "CO2_per_capita": 10.62,
+        "iso_code": "CZ"
+    },
+    "Uzbekistan": {
+        "CO2_per_capita": 3.48,
+        "iso_code": "UZ"
+    },
+    "Kuwait": {
+        "CO2_per_capita": 25.07,
+        "iso_code": "KW"
+    },
+    "Qatar": {
+        "CO2_per_capita": 38.14,
+        "iso_code": "QA"
+    },
+    "Belgium": {
+        "CO2_per_capita": 8.37,
+        "iso_code": "BE"
+    },
+    "Oman": {
+        "CO2_per_capita": 19.97,
+        "iso_code": "OM"
+    },
+    "Nigeria": {
+        "CO2_per_capita": 0.44,
+        "iso_code": "NG"
+    },
+    "Chile": {
+        "CO2_per_capita": 4.49,
+        "iso_code": "CL"
+    },
+    "Turkmenistan": {
+        "CO2_per_capita": 13.51,
+        "iso_code": "TM"
+    },
+    "Romania": {
+        "CO2_per_capita": 3.98,
+        "iso_code": "RO"
+    },
+    "Colombia": {
+        "CO2_per_capita": 1.63,
+        "iso_code": "CO"
+    },
+    "Bangladesh": {
+        "CO2_per_capita": 0.47,
+        "iso_code": "BD"
+    },
+    "Austria": {
+        "CO2_per_capita": 8.44,
+        "iso_code": "AT"
+    },
+    "Greece": {
+        "CO2_per_capita": 6.31,
+        "iso_code": "GR"
+    },
+    "Israel": {
+        "CO2_per_capita": 7.99,
+        "iso_code": "IL"
+    },
+    "Belarus": {
+        "CO2_per_capita": 6.45,
+        "iso_code": "BY"
+    },
+    "North Korea": {
+        "CO2_per_capita": 2.31,
+        "iso_code": "KP"
+    },
+    "Morocco": {
+        "CO2_per_capita": 1.64,
+        "iso_code": "MA"
+    },
+    "Peru": {
+        "CO2_per_capita": 1.85,
+        "iso_code": "PE"
+    },
+    "Libya": {
+        "CO2_per_capita": 8.39,
+        "iso_code": "LY"
+    },
+    "Finland": {
+        "CO2_per_capita": 9.31,
+        "iso_code": "FI"
+    },
+    "Hungary": {
+        "CO2_per_capita": 5.2,
+        "iso_code": "HU"
+    },
+    "Bulgaria": {
+        "CO2_per_capita": 7.02,
+        "iso_code": "BG"
+    },
+    "Portugal": {
+        "CO2_per_capita": 4.85,
+        "iso_code": "PT"
+    },
+    "Singapore": {
+        "CO2_per_capita": 8.47,
+        "iso_code": "SG"
+    },
+    "Hong Kong": {
+        "CO2_per_capita": 6.33,
+        "iso_code": "HK"
+    },
+    "Sweden": {
+        "CO2_per_capita": 4.49,
+        "iso_code": "SE"
+    },
+    "Norway": {
+        "CO2_per_capita": 8.3,
+        "iso_code": "NO"
+    },
+    "Serbia": {
+        "CO2_per_capita": 5.49,
+        "iso_code": "RS"
+    },
+    "Ecuador": {
+        "CO2_per_capita": 2.44,
+        "iso_code": "EC"
+    }
+}
