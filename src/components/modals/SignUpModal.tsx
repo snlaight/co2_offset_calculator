@@ -1,11 +1,11 @@
 import { SignUp } from '@clerk/nextjs';
 
-import RoutingModal from '@/components/modals/RoutingModal';
+import Modal from '@/components/modals/Modal';
 
 const SignUpModal = () => (
-  <RoutingModal>
+  <Modal>
     <SignUp />
-  </RoutingModal>
+  </Modal>
 );
 
 export default SignUpModal;
