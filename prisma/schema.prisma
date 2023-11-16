@@ -10,6 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model ClerkUserReference {
+  id          String   @id @default(uuid())
+  clerkUserId String   @map("clerk_user_id")
+  userType    UserType @default(User)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model TreePurchase {
   id           String   @id @default(uuid())
   userId       String

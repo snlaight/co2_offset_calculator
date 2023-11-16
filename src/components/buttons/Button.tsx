@@ -44,11 +44,11 @@ const ButtonComponent = ({
   };
 
   const ButtonVariants = {
-    default: cn(DefaultStyle, ''),
-    secondary: cn(DefaultStyle, ''),
-    success: cn(DefaultStyle, ''),
-    warning: cn(DefaultStyle, ''),
-    error: cn(DefaultStyle, ''),
+    default: cn(DefaultStyle, 'bg-primary-500 hover:bg-primary-600 text-white'),
+    secondary: cn(DefaultStyle, 'bg-secondary-500 hover:bg-secondary-600 text-white'),
+    success: cn(DefaultStyle, 'bg-success-500 hover:bg-success-600 text-white'),
+    warning: cn(DefaultStyle, 'bg-secondary-300 hover:bg-secondary-400 text-primary-950'),
+    error: cn(DefaultStyle, 'bg-red-500 hover:bg-red-600 text-white'),
     gradient: cn(DefaultStyle, 'bg-gradient-to-r from-primary-300 to-secondary-300'),
   };
 

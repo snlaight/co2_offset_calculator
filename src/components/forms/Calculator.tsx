@@ -17,6 +17,10 @@ const CalculatorForm = () => {
   });
 
   const { isLoading: locationDataLoading } = trpc.location.getUserLocation.useQuery(undefined, {
+    initialData: {
+      countryCode: 'US',
+      country: 'United States',
+    },
     onError: (error) => toast.error(error.message),
     refetchOnWindowFocus: false,
     onSettled: (res) => {

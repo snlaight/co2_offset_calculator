@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Table, Icon, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, NumberInput, DatePicker, Flex } from '@tremor/react';
 import { Trash } from 'lucide-react';
 
+import FormButton from '@/components/buttons/FormButton';
 import Button from '@/components/buttons/Button';
 import { trpc } from '@/providers/trpcProvider';
 
@@ -25,13 +26,15 @@ const Purchases = ({ disabled }: {disabled: boolean}) => {
     setPurchaseList([...purchaseList, newPurchase]);
   };
 
-  const handleInputChange = (index: number, field: keyof Purchase, value: string | number) => {
+  const handleInputChange = (index: number, field: keyof Purchase, value: string | number | Date) => {
     const updatedPurchaseList = purchaseList.map((purchase) => {
       if (purchase.index === index) {
         return { ...purchase, [field]: value };
       }
+      console.log(purchase);
       return purchase;
     });
+    console.log(updatedPurchaseList);
     setPurchaseList(updatedPurchaseList);
   };
 
@@ -41,7 +44,7 @@ const Purchases = ({ disabled }: {disabled: boolean}) => {
   };
 
   return (
-    <div className='h-full w-full space-y-2'>
+    <form className='h-full w-full space-y-2'>
       <Table className='mt-6 !h-[calc(100vh_-_30rem)] !w-[90%]'>
         <TableHead>
           <TableRow>
@@ -66,15 +69,16 @@ const Purchases = ({ disabled }: {disabled: boolean}) => {
                   displayFormat='MMM-yyyy'
                   minDate={new Date()}
                   value={purchase.monthYear}
-                  onValueChange={(e) => handleInputChange(purchase.index, 'monthYear', e?.getFullYear() || new Date().getFullYear())}
+                  onValueChange={(e) => handleInputChange(purchase.index, 'monthYear', e || new Date())}
                 />
               </TableCell>
               <TableCell>
                 <NumberInput
                   min={0}
                   height={5}
+                  max={55}
                   value={purchase.numberOfTrees}
-                  onChange={(e) => handleInputChange(purchase.index, 'numberOfTrees', parseInt(e.target.value, 2))}
+                  onChange={(e) => handleInputChange(purchase.index, 'numberOfTrees', parseInt(e.target.value, 10))}
                 />
               </TableCell>
               <TableCell>
@@ -85,12 +89,12 @@ const Purchases = ({ disabled }: {disabled: boolean}) => {
         </TableBody>
       </Table>
       <Flex className='w-1/2 space-x-24' justifyContent='between' alignItems='center'>
-        <Button isDisabled={disabled} onPress={addPurchase} color='gradient' className='p-2'>Add Purchase</Button>
-        <Button color='primary'>
+        <Button isLoading={disabled} onPress={addPurchase} color='gradient' className='p-2'>Add Purchase</Button>
+        <FormButton className='p-2'>
           Calculate
-        </Button>
+        </FormButton>
       </Flex>
-    </div>
+    </form>
   );
 };
 
