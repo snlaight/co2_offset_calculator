@@ -9,7 +9,7 @@ import { ValiError } from 'valibot';
 import getServerAuthSession from '@/server/common/get-server-auth-session';
 import PrismaInstance from '@/utils/helpers/clients/prisma.client';
 
-type Request = NextRequest | NextApiRequest;
+export type Request = NextRequest | NextApiRequest;
 
 interface CreateContextOptions {
   session : SignedInAuthObject | SignedOutAuthObject | null;

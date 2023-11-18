@@ -1,35 +1,34 @@
 'use client';
 
-import { useState } from 'react';
-import { Select, SelectItem, Text, Flex } from '@tremor/react';
+import { SearchSelect, SearchSelectItem, Text, Flex } from '@tremor/react';
 import { trpc } from '@/providers/trpcProvider';
 import { toast } from 'sonner';
 
 import Loader from '@/components/Loader';
+import useCalculationStore from '@/utils/store/calculation.store';
 import Purchases from '@/components/forms/Purchases';
 
 const CalculatorForm = () => {
-  const [selectedCountry, setSelectedCountry] = useState<string>('US');
+  const { setOffset, currentOffset, valueToOffset, setCountry } = useCalculationStore();
 
   const { isLoading, data } = trpc.emissions.getAllEmissions.useQuery(undefined, {
     onError: (error) => toast.error(error.message),
     refetchOnWindowFocus: false,
   });
 
-  const { isLoading: locationDataLoading } = trpc.location.getUserLocation.useQuery(undefined, {
+  const { isLoading: locationDataLoading, isFetching } = trpc.location.getUserLocation.useQuery(undefined, {
     initialData: {
       countryCode: 'US',
       country: 'United States',
     },
-    onError: (error) => toast.error(error.message),
+    onError: (error) => toast.error(`${error.message}, please select your location from the list.`),
     refetchOnWindowFocus: false,
     onSettled: (res) => {
-      if (res?.countryCode) setSelectedCountry(res?.countryCode);
-      setSelectedCountry('US');
+      if (res?.countryCode) setCountry(res?.countryCode);
     },
   });
 
-  if (isLoading && locationDataLoading) return <Loader />;
+  if (isLoading && isFetching) return <Loader />;
 
   if (!data) return null;
 
@@ -40,14 +39,36 @@ const CalculatorForm = () => {
           <Text>
             Country:
           </Text>
-          <Select defaultValue={selectedCountry} disabled={locationDataLoading}>
+          <SearchSelect disabled={locationDataLoading}>
             {data.map((country) => (
-              <SelectItem value={country.country_name} key={country.country_code}>
+              <SearchSelectItem
+                value={country.country_code}
+                key={country.country_code}
+                onClick={() => {
+                  setCountry(country.country_code);
+                  setOffset(country.emissions_per_capita, currentOffset);
+                }}
+
+              >
                 {country.country_name}
-              </SelectItem>
+              </SearchSelectItem>
             ))}
-          </Select>
+          </SearchSelect>
         </Flex>
+
+        <Flex>
+          <Text>
+            Emissions:
+          </Text>
+          {valueToOffset ? (
+            <Text>
+              {valueToOffset}
+              {' '}
+              kg CO2 per capita
+            </Text>
+          ) : null}
+        </Flex>
+
       </div>
       <Purchases disabled={isLoading && locationDataLoading} />
     </Flex>

@@ -1,27 +1,35 @@
 /* eslint-disable no-plusplus */
 import calculateTreeOffset from '@/utils/helpers/calculateTreeOffset';
 
-interface Purchase {
-  year: number;
+export interface Purchase {
+  index?: number;
+  year: number | Date;
   trees: number;
 }
 
 export interface Simulation {
   country?: string;
   purchases: Purchase[];
-  year: number;
+  year: number | Date;
 }
 
 const runSimulation = (simulation: Simulation) => {
   const purchasesByYear: { [key: number]: number } = simulation.purchases.reduce((acc, purchase) => {
-    acc[purchase.year] = purchase.trees;
+    let { year } = purchase;
+
+    if (typeof year !== 'number') {
+      year = year.getFullYear();
+    }
+
+    acc[purchase.year as number] = purchase.trees;
     return acc;
   }, {} as { [key: number]: number });
 
   const sum = Object.keys(purchasesByYear).reduce((acc, year) => {
     const trees = purchasesByYear[year as unknown as number];
 
-    const offset = calculateTreeOffset(+year, simulation.year) * trees;
+    const offset = calculateTreeOffset(new Date(year).getFullYear(), new Date(simulation.year).getFullYear()) * trees;
+
     return acc + offset;
   }, 0);
 
